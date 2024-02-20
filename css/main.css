@@ -1,0 +1,371 @@
+:root {
+    --palette-main: hsl(41, 100%, 50%);
+    --palette-main-dark: hsl(41, 100%, 30%);
+    --palette-main-darkest: hsl(41, 100%, 20%);
+    --palette-font: black;
+    --talk-palette-main: #3333b2;
+    --talk-palette-main-light: rgb(122, 122, 255);
+    --talk-palette-main-darkest: rgb(0, 0, 129);
+    --talk-palette-main-opposite: white;
+    --talk-palette-accent: green;
+    --talk-palette-background: rgb(255, 253, 247);
+    --talk-palette-background-dark: gray;
+    --talk-size-border-radius: 8px;
+    --font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
+html {
+    overflow: auto;
+}
+
+body {
+    color: var(--palette-font);
+    margin: 0;
+    padding: 0;
+}
+
+/* HEADER =======================================================================================*/
+
+body > header {
+    box-sizing: border-box;
+    max-width: 1000px;
+    min-width: 360px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row;
+    flex-wrap: wrap;
+    /* border-bottom: 1px solid black; */
+    padding: 1em 1.5em;
+}
+
+#logo {
+    width: 230px;
+    margin: 2em 2em 0 0;
+}
+
+#locale-nav-bar {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    width: fit-content;
+}
+
+#main-nav-bar > ul {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-flow: row;
+    list-style: none;
+    padding: 0;
+    margin: 1em 0 1.5em 0;
+}
+
+#main-nav-bar > ul > li {
+    margin: 0;
+    text-align: center;
+}
+
+@media screen and (max-width: 720px) {
+    header {
+        flex-flow: column;
+    }
+
+    #logo {
+        margin: 2em 0 0 0;
+    }
+
+    #main-nav-bar {
+        position: relative;
+        width: 100%;
+    }
+    
+    #main-nav-bar > ul {
+        flex-flow: column;
+        width: 100%;
+    }
+
+    #main-nav-bar > ul > li {
+        width: max(70%, 180px);
+
+    }
+
+    #main-nav-bar > ul > li:not(:last-child) {
+        border-bottom: 1px solid black;
+    }
+
+    #main-nav-bar > ul > li:first-child > a {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+
+    #main-nav-bar > ul > li:last-child > a {
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+
+    #main-nav-bar > ul > li > a:active {
+        background-color: var(--palette-main-darkest);
+    }
+}
+
+@media screen and (min-width: 720px) {
+    #main-nav-bar > ul > li:not(:last-child) > a {
+        border-right: 1px solid black;
+    }
+    
+    #main-nav-bar > ul > li:first-child > a {
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+    }
+    
+    #main-nav-bar > ul > li:last-child > a {
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+
+    #main-nav-bar > ul > li > a:active {
+        box-shadow: none;
+        top: 5px;
+    }
+}
+
+#main-nav-bar > ul > li > a {
+    display: block;
+    padding: 1em 1.5em .85em 1.5em;
+    background-color: var(--palette-main);
+    box-shadow: 0 5px 0 var(--palette-main-darkest);
+    color: white;
+    position: relative;
+    text-decoration: none;
+    /* text-transform: uppercase; */
+    /* font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; */
+    font: 13pt "Arial", sans-serif; 
+    font-weight: bold;
+}
+
+#main-nav-bar > ul > li > a:hover {
+    background-color: var(--palette-main-dark);
+    cursor: pointer;
+}
+
+/* CONTENT ======================================================================================*/
+
+main {
+    box-sizing: border-box;
+    max-width: 800px;
+    min-width: 360px;
+    text-align: justify;
+    margin: 0 auto;
+    padding: 0 2em 3em;
+}
+
+main p {
+    font-family: var(--font-family);
+    font-size: 15px;
+}
+
+main h1, main h2 {
+    font-family: var(--font-family);
+}
+
+.footer-logos {
+    text-align: center;
+}
+
+.footer-logos > *:not(:last-child) {
+    margin-right: 0.5em;
+}
+
+.footer-logos > *:not(:first-child) {
+    margin-left: 0.5em;
+}
+
+.main-talk {
+    margin-bottom: 2.5em;
+}
+
+.main-subscribe {
+    margin-bottom: 2em;
+}
+
+#mc_embed_signup {
+    display: flex;
+    justify-content: center;
+    margin: 0.5em 0 1.5em;
+}
+
+#mc_embed_signup > form {
+    text-align: center;
+    line-height: 2;
+}
+
+/* ARCHIVE ======================================================================================*/
+
+.archive-text {
+    text-align: center;
+}
+
+#archive-nav {
+    margin: 0.8em 0 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#archive-nav > ul {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    flex-flow: row;
+    list-style: none;
+    padding: 0;
+    margin: 1em 0 1.5em 0;
+    box-shadow: 1px 1px 3px var(--talk-palette-main-darkest);
+    border-radius: 10px;
+    border: solid 0.5px var(--talk-palette-main-darkest);
+}
+
+.archive-nav-item {
+    margin: 0;
+    text-align: center;
+}
+
+.archive-nav-item > a {
+    display: block;
+    padding: 0.5em 1em .35em 1em;
+    background-color: var(--talk-palette-main);
+    position: relative;
+    text-decoration: none;
+    font: 12pt "Arial", sans-serif;
+    font-weight: bold;
+    color: var(--talk-palette-main-opposite);
+}
+
+.archive-nav-item > a:hover {
+    background-color: var(--talk-palette-main-darkest);
+    cursor: pointer;
+}
+
+.archive-nav-item > a:active {
+    background-color: var(--talk-palette-main-light);
+}
+
+#archive-nav-current > a:hover {
+    cursor: default;
+}
+
+@media screen and (max-width: 720px) {
+    #archive-nav > ul {
+        flex-flow: row;
+        flex-wrap: wrap;
+        width: 300px;
+        justify-content: center;
+        background-color: var(--talk-palette-main);
+        padding: 0.5em 0.5em;
+    }
+
+    #archive-nav-current > a {
+        background-color: var(--talk-palette-background);
+        color: var(--palette-font);
+    }
+
+    .archive-nav-item {
+        margin: 0.2em 0.2em;
+    }
+
+    .archive-nav-item > a {
+        padding: 0.3em 0.5em .1em 0.5em;
+        border-radius: 5px;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    .archive-nav-item:not(:last-child) > a {
+        border-right: 2px solid var(--talk-palette-main-light);
+    }
+    
+    .archive-nav-item:first-child > a {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    
+    .archive-nav-item:last-child > a {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    #archive-nav-current > a {
+        background-color: var(--talk-palette-background);
+        color: var(--palette-font);
+    }
+}
+
+/* COMPONENTS ===================================================================================*/
+
+/* Talk -----------------------------------------------------------------------------------------*/
+
+.talk {
+    font: 12pt var(--font-family);
+    background-color: var(--talk-palette-background);
+    box-shadow: 1px 1px 5px var(--talk-palette-background-dark);
+    margin: 1.5em 2em;
+    border-radius: var(--talk-size-border-radius);
+    text-align: left;
+}
+
+.talk > header {
+    background-color: var(--talk-palette-main);
+    color: var(--talk-palette-main-opposite);
+    font-weight: bold;
+    padding: 0.5em 1.5em;
+    border-radius: var(--talk-size-border-radius) var(--talk-size-border-radius) 0 0;
+}
+
+.talk > section {
+    padding: 1em 1.5em;
+}
+
+.talk > section > h2 {
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-size: 13pt;
+    color: var(--talk-palette-accent);
+}
+
+.talk > section > ul {
+    list-style: none;
+    padding: 0 0 0 1em;
+    margin: 0;
+}
+
+.talk > section > ul > li:not(:last-child) {
+    margin-bottom: 0.2em;
+}
+
+.talk > section > ul > li {
+    display: flex;
+    flex-flow: row;
+}
+
+.talk-speaker {
+    font-weight: bold;
+}
+
+.talk-icon {
+    margin-right: 0.3em;
+    width: 1em;
+}
+
+.talk-icon > i {
+    width: 1em;
+    text-align: center;
+}
+
+.talk-icon > span {
+    display: none;
+}
